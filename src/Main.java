@@ -14,21 +14,27 @@ public class Main {
         Population cl = new Population();
         List<Integer> temp = new ArrayList<Integer>();
         for (int i = 0; i < 50; i++) {
-            if ((temp = cl.GenerateRandCyc(graph))!=null)
+            temp = cl.GenerateRandCyc(graph);
+            if (temp != null) {
                 all.add(temp);
+                System.out.print(temp + " *\n");
+            }
         }
         List<List<Integer>> nextgen = new ArrayList<List<Integer>>();
         int i = 0;
-        while (i < all.size()*2) {
+        while (i < all.size() * 2) {
             int k = rand.nextInt(all.size());
             int l = rand.nextInt(all.size());
             if (k != l) {
-                List<Integer> child = cl.Crossing(all.get(l), all.get(k)); //TODO: ОБЪЕДИНИТЬ МАССИВЫ
-                nextgen.add(child);
+                List<Integer> child = cl.Crossing(all.get(l), all.get(k));
+                if (child != null) {
+                    nextgen.add(child);
+                    System.out.print(child + "\n");
+                }
             }
             i++;
         }
-//        all.clear();
+        all.clear();
 //        for (int j=0; j<nextgen.size(); j++) {
 //            if (cl.selection(nextgen.get(j), n)) {
 //                all.add(nextgen.get(j));
