@@ -38,7 +38,7 @@ public class Population {
         return null;
     }
 
-    public List<Integer> Crossing(List<Integer> list, List<Integer> list2) throws ConcurrentModificationException {
+    public List<Integer> Crossing(List<Integer> list, List<Integer> list2) {
         Random rand = new Random();
         List<Integer> child1 = null;
         List<Integer> child2 = null;
@@ -95,9 +95,11 @@ public class Population {
         boolean f = true;
         for (int i = 1; i < person.size(); i++) {
             for (int j = 1; j < person.size(); j++) {
-                if (person.get(i) == person.get(j)) {
+                if ((i!=j)&&person.get(i) == person.get(j)) {
                     f = false;
+                    break;
                 }
+                if (!f) break;
             }
         }
         if ((person.size() >= n / 3) && f) {
@@ -107,7 +109,7 @@ public class Population {
     }
 
     public boolean isOptimal(List<Integer> person, int n) {
-        if (person.size() == n) {
+        if (person.size() == n + 1) {
             return true;
         }
         return false;
