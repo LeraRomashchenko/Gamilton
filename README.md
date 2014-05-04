@@ -9,12 +9,19 @@ First string is number of tops, further use adjacency list structure to describe
 --------
 
 Example of input data:
+
 6
-2 4 6 "\n" 
-1 3 6 
+
+2 4 6 
+
+1 3 6
+
 2 4 5
+
 1 3 5
+
 3 4 6 
+
 1 2 5
 
 -------
